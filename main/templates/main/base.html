@@ -87,12 +87,12 @@
                             height="16">
                     </button>
                     <ul class="dropdown-menu bg-dark" data-bs-theme="dark">
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Все товары</a></li>
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Телевизоры и Цифровое ТВ</a></li>
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Компьютеры, ноутбуки и планшеты</a></li>
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Смартфоны и гаджеты</a></li>
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Техника для кухни</a></li>
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Техника для дома</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Все товары</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Телевизоры и Цифровое ТВ</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Компьютеры, ноутбуки и планшеты</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Смартфоны и гаджеты</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Техника для кухни</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url 'catalog:index' %}">Техника для дома</a></li>
                     </ul>
                 </div>
                 <!-- Значок корзины, вызывает модальное окно -->
