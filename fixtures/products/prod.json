@@ -1,0 +1,497 @@
+[
+  {
+    "model" : "products.products" ,
+    "pk" : 1 ,
+    "fields" : {
+      "name" : "Ultra HD (4K) LED телевизор 50\"" ,
+      "manufacturer" : "Samsung" ,
+      "slug" : "ultra-hd-4k-led-televizor-50" ,
+      "description" : "Ultra HD (4K) LED телевизор 50\" Samsung UE50DU7100UXRU со встроенным процессором Crystal Processor 4K оборудован операционной системой Tizen с интуитивно понятным интерфейсом." ,
+      "image" : "" ,
+      "price" : "48499.00" ,
+      "discount" : "0.00" ,
+      "quantity" : 20 ,
+      "category" : 3
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 2 ,
+    "fields" : {
+      "name" : "Ultra HD (4K) HQLED телевизор 55\"" ,
+      "manufacturer" : "Haier" ,
+      "slug" : "ultra-hd-4k-hqled-televizor-55" ,
+      "description" : "Ultra HD (4K) HQLED телевизор 55\" Haier 55 Smart TV AX Pro имеет тонкую рамку, что увеличивает угол обзора. Широкоформатный экран воспроизводит качественное изображение с разрешением 3840х2160 пикселей." ,
+      "image" : "" ,
+      "price" : "69999.50" ,
+      "discount" : "0.00" ,
+      "quantity" : 12 ,
+      "category" : 3
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 3 ,
+    "fields" : {
+      "name" : "Наушники True Wireless Choice Earbuds" ,
+      "manufacturer" : "Honor" ,
+      "slug" : "naushniki-true-wireless-choice-earbuds" ,
+      "description" : "Наушники True Wireless Honor Choice TRN-ME00 Light Blue — компактные и стильные беспроводные вкладыши с защитой корпуса от воды и пыли согласно стандарту IP54." ,
+      "image" : "" ,
+      "price" : "2588.00" ,
+      "discount" : "0.00" ,
+      "quantity" : 10 ,
+      "category" : 5
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 4 ,
+    "fields" : {
+      "name" : "AirPods Max MGYM3" ,
+      "manufacturer" : "Apple" ,
+      "slug" : "airpods-max-mgym3" ,
+      "description" : "AirPods Max — это совершенно новый взгляд на полноразмерные наушники. Все элементы AirPods Max, от амбушюров до оголовья, спроектированы таким образом, чтобы наушники оптимально прилегали к голове любой формы." ,
+      "image" : "" ,
+      "price" : "48000.00" ,
+      "discount" : "0.00" ,
+      "quantity" : 9 ,
+      "category" : 5
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 5 ,
+    "fields" : {
+      "name" : "Беспроводные наушники Buds 5-Graphite" ,
+      "manufacturer" : "Xiaomi" ,
+      "slug" : "besprovodnye-naushniki-buds-5-graphite" ,
+      "description" : "Беспроводные наушники Xiaomi Buds 5-Graphite Black (BHR8118GL) имеют радиус действия 10 м. Для комфортного прослушивания треков без отвлечения на посторонние звуки предусмотрена система активного шумоподавления." ,
+      "image" : "" ,
+      "price" : "9999.00" ,
+      "discount" : "0.00" ,
+      "quantity" : 11 ,
+      "category" : 5
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 6 ,
+    "fields" : {
+      "name" : "Смартфон Samsung Galaxy S23 256GB Green" ,
+      "manufacturer" : "Samsung" ,
+      "slug" : "smartfon-samsung-galaxy-s23-256gb-green" ,
+      "description" : "Смартфон Samsung Galaxy S23 256GB Green (SM-S911/DS) оптимален для работы с ресурсоемкими приложениями, так как характеризуется высокой вычислительной мощностью." ,
+      "image" : "" ,
+      "price" : "85000.50" ,
+      "discount" : "0.00" ,
+      "quantity" : 7 ,
+      "category" : 5
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 7 ,
+    "fields" : {
+      "name" : "Смартфон Honor 90 12/512GB Emerald Green" ,
+      "manufacturer" : "Honor" ,
+      "slug" : "smartfon-honor-90-12512gb-emerald-green" ,
+      "description" : "Смартфон Honor 90 12/512GB Emerald Green с тремя основными камерами 200+12+2+af Мпикс позволит создать четкие, яркие и детализированные снимки благодаря зуму 10х и поддержке HDR." ,
+      "image" : "" ,
+      "price" : "30100.00" ,
+      "discount" : "0.00" ,
+      "quantity" : 8 ,
+      "category" : 5
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 8 ,
+    "fields" : {
+      "name" : "Планшет Honor Pad 9 8/256GB Wi-Fi" ,
+      "manufacturer" : "Honor" ,
+      "slug" : "planshet-honor-pad-9-8256gb-wi-fi" ,
+      "description" : "Планшет Honor Pad 9 8/256GB Wi-Fi Space Gray (5301AHNJ) оснащен дисплеем IPS, который обеспечивает реалистичное отображение цветов и оттенков." ,
+      "image" : "" ,
+      "price" : "27999.00" ,
+      "discount" : "0.00" ,
+      "quantity" : 9 ,
+      "category" : 4
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 9 ,
+    "fields" : {
+      "name" : "Планшет Samsung Galaxy Tab S10 Ultra 5G 256GB" ,
+      "manufacturer" : "Samsung" ,
+      "slug" : "planshet-samsung-galaxy-tab-s10-ultra-5g-256gb" ,
+      "description" : "Планшет Samsung Galaxy Tab S10 Ultra 5G 256GB Gray (SM-X926B) оснащен восьмиядерным процессором. Благодаря этому устройство не зависает при запуске нескольких ресурсоемких программ." ,
+      "image" : "" ,
+      "price" : "99999.00" ,
+      "discount" : "0.00" ,
+      "quantity" : 18 ,
+      "category" : 4
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 10 ,
+    "fields" : {
+      "name" : "Планшет Apple IPad Air 13 Wi-Fi 128GB" ,
+      "manufacturer" : "Apple" ,
+      "slug" : "planshet-apple-ipad-air-13-wi-fi-128gb" ,
+      "description" : "Планшет Apple IPad Air 13 Wi-Fi 128GB Blue MV283 с экраном диагональю 13\" позволяет просматривать контент в разрешении 2732x2048 пикс." ,
+      "image" : "" ,
+      "price" : "89999.50" ,
+      "discount" : "0.00" ,
+      "quantity" : 9 ,
+      "category" : 4
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 11 ,
+    "fields" : {
+      "name" : "Смарт-часы Apple Watch SE 44 мм" ,
+      "manufacturer" : "Apple" ,
+      "slug" : "smart-chasy-apple-watch-se-44-mm" ,
+      "description" : "Смарт-часы Apple Watch SE 44 мм SilverAlum./White Sport M/L (MNTJ3) оснащены сенсорным дисплеем Retina LTPO OLED яркостью 1000 кд/м²." ,
+      "image" : "" ,
+      "price" : "28999.00" ,
+      "discount" : "0.00" ,
+      "quantity" : 14 ,
+      "category" : 5
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 12 ,
+    "fields" : {
+      "name" : "Смарт-часы Xiaomi Redmi Watch 5 Active" ,
+      "manufacturer" : "Xiaomi" ,
+      "slug" : "smart-chasy-xiaomi-redmi-watch-5-active" ,
+      "description" : "Смарт-часы Xiaomi Redmi Watch 5 Active Midnight Black (BHR8784GL) дают возможность осуществлять мониторинг основных показателей. Устройство может контролировать уровень стресса, ЧСС, состояние сна, пройденное расстояние и сожженные калории." ,
+      "image" : "" ,
+      "price" : "3500.00" ,
+      "discount" : "0.00" ,
+      "quantity" : 5 ,
+      "category" : 5
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 13 ,
+    "fields" : {
+      "name" : "Холодильник Haier C4F640CWU1 двухкамерного типа" ,
+      "manufacturer" : "Haier" ,
+      "slug" : "holodilnik-haier-c4f640cwu1-dvuhkamernogo-tipa" ,
+      "description" : "Холодильник Haier C4F640CWU1 двухкамерного типа имеет объем 400 л. Модель оснащена светодиодной подсветкой в основной камере. За счет технологии No Frost устройство не требует разморозки." ,
+      "image" : "" ,
+      "price" : "80000.00" ,
+      "discount" : "0.00" ,
+      "quantity" : 15 ,
+      "category" : 6
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 14 ,
+    "fields" : {
+      "name" : "Холодильник LG InstaView GC-Q22FTAKL" ,
+      "manufacturer" : "LG" ,
+      "slug" : "holodilnik-lg-instaview-gc-q22ftakl" ,
+      "description" : "Холодильник LG InstaView GC-Q22FTAKL оснащен инверторным компрессором, который обеспечивает оптимальное энергопотребление и низкий уровень шума. Благодаря технологии DoorCooling+ происходит равномерный обдув основной камеры воздухом." ,
+      "image" : "" ,
+      "price" : "72400.99" ,
+      "discount" : "0.00" ,
+      "quantity" : 4 ,
+      "category" : 6
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 15 ,
+    "fields" : {
+      "name" : "Телевизионная приставка Apple TV HD 32GB" ,
+      "manufacturer" : "Apple" ,
+      "slug" : "televizionnaya-pristavka-apple-tv-hd-32gb" ,
+      "description" : "Телевизионная приставка Apple TV HD 32GB (MHY93) оснащена процессором A8, характеризующимся высокой производительностью и энергоэффективностью." ,
+      "image" : "" ,
+      "price" : "12500.00" ,
+      "discount" : "0.00" ,
+      "quantity" : 3 ,
+      "category" : 3
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 16 ,
+    "fields" : {
+      "name" : "Smart-TV-приставка Xiaomi TV Box S 2nd Gen 4K" ,
+      "manufacturer" : "Xiaomi" ,
+      "slug" : "smart-tv-pristavka-xiaomi-tv-box-s-2nd-gen-4k" ,
+      "description" : "Smart-TV-приставка Xiaomi TV Box S 2nd Gen 4K (MDZ-28-AA) обладает высокой производительностью, что обусловлено наличием мощного многоядерного процессора. С помощью устройства можно расширить функционал устаревшего телевизора." ,
+      "image" : "" ,
+      "price" : "9000.00" ,
+      "discount" : "0.00" ,
+      "quantity" : 5 ,
+      "category" : 3
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 17 ,
+    "fields" : {
+      "name" : "Ноутбук Haier AX1550SD" ,
+      "manufacturer" : "Haier" ,
+      "slug" : "noutbuk-haier-ax1550sd" ,
+      "description" : "Ноутбук Haier AX1550SD оснащен процессором, который характеризуется высокой производительностью и обеспечивает быструю загрузку системы и приложений." ,
+      "image" : "" ,
+      "price" : "38999.99" ,
+      "discount" : "0.00" ,
+      "quantity" : 7 ,
+      "category" : 4
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 18 ,
+    "fields" : {
+      "name" : "Ноутбук Apple MacBook Air 13 MLXY3" ,
+      "manufacturer" : "Apple" ,
+      "slug" : "noutbuk-apple-macbook-air-13-mlxy3" ,
+      "description" : "Ноутбук Apple MacBook Air 13 MLXY3, предлагает широкие возможности для решения бизнес-задач, офисной работы, игр со сложной графикой. Высокую производительность устройства обеспечивает чип М2." ,
+      "image" : "" ,
+      "price" : "99999.00" ,
+      "discount" : "0.00" ,
+      "quantity" : 6 ,
+      "category" : 4
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 19 ,
+    "fields" : {
+      "name" : "Ноутбук Samsung NP750QGK-LG1IN" ,
+      "manufacturer" : "Samsung" ,
+      "slug" : "noutbuk-samsung-np750qgk-lg1in" ,
+      "description" : "Ноутбук Samsung NP750QGK-LG1IN Dark Grey — высокопроизводительное устройство, способное работать с ресурсоемким ПО и поддерживающее современные игры. Поставляется с предустановленной ОС Windows 11 Home." ,
+      "image" : "" ,
+      "price" : "99999.50" ,
+      "discount" : "0.00" ,
+      "quantity" : 6 ,
+      "category" : 4
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 20 ,
+    "fields" : {
+      "name" : "Кофеварка капельного типа Majestuo CM883D10" ,
+      "manufacturer" : "Tefal" ,
+      "slug" : "kofevarka-kapelnogo-tipa-majestuo-cm883d10" ,
+      "description" : "Кофеварка капельного типа Tefal Majestuo CM883D10 представлена в корпусе серебристого цвета. Мощность прибора составляет 1050 Вт. Объем кофеварки — 1,25 л, что позволяет готовить до 10-15 чашек кофе за раз." ,
+      "image" : "" ,
+      "price" : "9839.00" ,
+      "discount" : "0.00" ,
+      "quantity" : 6 ,
+      "category" : 6
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 21 ,
+    "fields" : {
+      "name" : "Кофемашина Philips EP1221 Series 1200" ,
+      "manufacturer" : "Philips" ,
+      "slug" : "kofemashina-philips-ep1221-series-1200" ,
+      "description" : "Кофемашина Philips EP1221 Series 1200 приготовит разнообразные напитки с добавлением молока благодаря ручной системе приготовления капучино. Поддон для капель и контейнер для кофейной гущи можно мыть в посудомоечной машине." ,
+      "image" : "" ,
+      "price" : "38000.50" ,
+      "discount" : "0.00" ,
+      "quantity" : 2 ,
+      "category" : 6
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 22 ,
+    "fields" : {
+      "name" : "Игровой монитор G34WQi" ,
+      "manufacturer" : "Xiaomi" ,
+      "slug" : "igrovoj-monitor-g34wqi" ,
+      "description" : "Игровой монитор Xiaomi G34WQi в корпусе черного цвета оснащен 34-дюймовым дисплеем разрешением 3440x1440 пикселей и частотой обновления 180 Гц. Даже во время быстрой игры картинки меняются плавно, отклик составляет всего 1 мс." ,
+      "image" : "" ,
+      "price" : "34000.00" ,
+      "discount" : "0.00" ,
+      "quantity" : 5 ,
+      "category" : 4
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 23 ,
+    "fields" : {
+      "name" : "Монитор UltraWide 34WP65C-B" ,
+      "manufacturer" : "LG" ,
+      "slug" : "monitor-ultrawide-34wp65c-b" ,
+      "description" : "LG UltraWide 34WP65C-B — монитор для геймеров с изогнутым экраном, тонким корпусом, возможностью регулировки положения и широким набором настроек для погружения в мир гейминга и мультимедиа. Сертифицированные технологии защиты зрения снижают нагрузку на глаза даже при длительной работе за экраном." ,
+      "image" : "" ,
+      "price" : "35839.50" ,
+      "discount" : "0.00" ,
+      "quantity" : 17 ,
+      "category" : 4
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 24 ,
+    "fields" : {
+      "name" : "Утюг HI-600" ,
+      "manufacturer" : "Haier" ,
+      "slug" : "utyug-hi-600" ,
+      "description" : "Утюг Haier HI-600 имеет электронную систему управления. Благодаря системе самоочистки утюг Haier HI-600 не требует специального ухода и характеризуется длительным сроком эксплуатации." ,
+      "image" : "" ,
+      "price" : "7000.00" ,
+      "discount" : "0.00" ,
+      "quantity" : 11 ,
+      "category" : 7
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 25 ,
+    "fields" : {
+      "name" : "Утюг Easygliss Eco FV5780E1" ,
+      "manufacturer" : "Tefal" ,
+      "slug" : "utyug-easygliss-eco-fv5780e1" ,
+      "description" : "Утюг Tefal Easygliss Eco FV5780E1 с корпусом белого и коричневого цветов нагревается до рабочего состояния за 2 минуты за счет мощности 2800 Вт. Прибор с подошвой Durilium AirGlide подходит для сухого глажения и отпаривания текстильных изделий в вертикальном положении." ,
+      "image" : "" ,
+      "price" : "7999.99" ,
+      "discount" : "0.00" ,
+      "quantity" : 3 ,
+      "category" : 7
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 26 ,
+    "fields" : {
+      "name" : "Пылесос с контейнером для пыли VC-5420NNTS" ,
+      "manufacturer" : "LG" ,
+      "slug" : "pylesos-s-kontejnerom-dlya-pyli-vc-5420nnts" ,
+      "description" : "Пылесос с контейнером для пыли LG VC-5420NNTS получил пластиковый корпус серебристого цвета с автоматическим сматыванием 5,3-метрового сетевого шнура. Во время работы уровень шума достигает 82 дБ." ,
+      "image" : "" ,
+      "price" : "10490.99" ,
+      "discount" : "0.00" ,
+      "quantity" : 7 ,
+      "category" : 7
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 27 ,
+    "fields" : {
+      "name" : "Пылесос Compact Power XXL (TW4B36EA)" ,
+      "manufacturer" : "Tefal" ,
+      "slug" : "pylesos-compact-power-xxl-tw4b36ea" ,
+      "description" : "Пылесос Tefal Compact Power XXL (TW4B36EA) с уровнем шума 75 дБ оснащен механическим выключателем, который расположен на корпусе. Модель предназначена для сухой уборки комнаты." ,
+      "image" : "" ,
+      "price" : "12000.00" ,
+      "discount" : "0.00" ,
+      "quantity" : 11 ,
+      "category" : 7
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 28 ,
+    "fields" : {
+      "name" : "Мультиварка Essential Cook RK321A32" ,
+      "manufacturer" : "Tefal" ,
+      "slug" : "multivarka-essential-cook-rk321a32" ,
+      "description" : "Мультиварка Tefal Essential Cook RK321A32 — удобное в эксплуатации устройство, предназначенное для приготовления вкусных и полезных блюд. Объем чаши составляет 5 л, чего достаточно для нескольких пользователей." ,
+      "image" : "" ,
+      "price" : "13000.00" ,
+      "discount" : "0.00" ,
+      "quantity" : 6 ,
+      "category" : 6
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 29 ,
+    "fields" : {
+      "name" : "Мультиварка Qcooker Cooking Pot CR-HGX1" ,
+      "manufacturer" : "Xiaomi" ,
+      "slug" : "multivarka-qcooker-cooking-pot-cr-hgx1" ,
+      "description" : "Мультиварка Xiaomi Qcooker Cooking Pot CR-HGX1 оснащена чашей объемом 3 л. Емкость имеет антипригарное покрытие, которое исключает прилипание продуктов. Таймер используется для установки определенного интервала времени работы устройства." ,
+      "image" : "" ,
+      "price" : "10999.99" ,
+      "discount" : "0.00" ,
+      "quantity" : 7 ,
+      "category" : 6
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 30 ,
+    "fields" : {
+      "name" : "Стиральная машина HW60-BP12919BS" ,
+      "manufacturer" : "Haier" ,
+      "slug" : "stiralnaya-mashina-hw60-bp12919bs" ,
+      "description" : "Стиральная машина Haier HW60-BP12919BS обладает оптимальным объёмом загрузки 6 кг, который одинаково хорошо подходит для ежедневной и интенсивной, объёмной стирки." ,
+      "image" : "" ,
+      "price" : "34999.99" ,
+      "discount" : "0.00" ,
+      "quantity" : 4 ,
+      "category" : 7
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 31 ,
+    "fields" : {
+      "name" : "Стиральная машина WW60AG4S00CELD" ,
+      "manufacturer" : "Samsung" ,
+      "slug" : "stiralnaya-mashina-ww60ag4s00celd" ,
+      "description" : "Стиральная машина Samsung WW60AG4S00CELD - это современное и функциональное устройство, которое станет незаменимым помощником в вашем доме. Стиральная машина оснащена инверторным двигателем, который обеспечивает тихую и эффективную работу." ,
+      "image" : "" ,
+      "price" : "32855.50" ,
+      "discount" : "0.00" ,
+      "quantity" : 9 ,
+      "category" : 7
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 32 ,
+    "fields" : {
+      "name" : "Электрическая плита GEC6C60XA" ,
+      "manufacturer" : "Gorenje" ,
+      "slug" : "elektricheskaya-plita-gec6c60xa" ,
+      "description" : "Электрическая плита Gorenje GEC6C60XA оснащена многофункциональной духовкой вместительностью 71 л. Процесс приготовления пищи значительно упрощается наличием 11 режимов работы, в том числе большого гриля, вентиляционного и классического нагрева, размораживания." ,
+      "image" : "" ,
+      "price" : "63999.99" ,
+      "discount" : "0.00" ,
+      "quantity" : 6 ,
+      "category" : 6
+    }
+  } ,
+  {
+    "model" : "products.products" ,
+    "pk" : 33 ,
+    "fields" : {
+      "name" : "Электрическая плита WES E2V05" ,
+      "manufacturer" : "Weissgauff" ,
+      "slug" : "elektricheskaya-plita-wes-e2v05" ,
+      "description" : "Электрическая плита Weissgauff WES E2V05 B имеет три конфорки стола типа Hi-Light. Зоны нагрева разного размера и мощности оптимальны для приготовления еды в больших кастрюлях и маленьких сотейниках. Духовой шкаф поддерживает три режима тепловой обработки пищи." ,
+      "image" : "" ,
+      "price" : "31000.00" ,
+      "discount" : "0.00" ,
+      "quantity" : 8 ,
+      "category" : 6
+    }
+  }
+]
