@@ -19,8 +19,8 @@
     "model" : "products.categories" ,
     "pk" : 4 ,
     "fields" : {
-      "name" : "Компьютеры, ноутбуки и планшеты" ,
-      "slug" : "kompyutery-noutbuki-i-planshety"
+      "name" : "Мониторы, ноутбуки и планшеты" ,
+      "slug" : "monitory-noutbuki-i-planshety"
     }
   } ,
   {
@@ -48,3 +48,4 @@
     }
   }
 ]
+
