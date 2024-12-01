@@ -25,6 +25,11 @@ SECRET_KEY = 'django-insecure-$ef!nd_nvuea=s#d27400z@-v@^g2!lj8!$^%on7+yz&-_17(=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+
 ALLOWED_HOSTS = []
 
 
@@ -37,8 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'debug_toolbar',
+
     'main',
     'products',
+
 ]
 
 MIDDLEWARE = [
@@ -49,6 +58,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = 'TechnoLite.urls'
@@ -122,6 +133,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS: list[Path] = [
     BASE_DIR / 'static'
 ]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
