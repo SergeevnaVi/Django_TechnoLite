@@ -1,9 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_list_or_404
 from .models import Products
 
-def catalog(request):
+def catalog(request, category_slug):
 
-    products = Products.objects.all()
+    if category_slug == 'vse-tovary':
+        products = Products.objects.all()
+    else:
+        products = Products.objects.filter(category__slug=category_slug)
 
     context = {
         'title': 'TechnoLite - Главная',
