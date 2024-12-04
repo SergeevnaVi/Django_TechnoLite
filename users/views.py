@@ -1,8 +1,9 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib import auth
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from .forms import UserLoginForm, UserRegistrationForm
+from .forms import UserLoginForm, UserRegistrationForm, ProfileForm
 
 
 def login(request):
@@ -44,12 +45,29 @@ def registration(request):
     }
     return render(request, 'users/registration.html', context)
 
+# Запретить доступ к контроллерам - не авторизованным пользователям
+@login_required
 def profile(request):
+    if request.method == 'POST':
+        # наполняем данными которые ввел пользователь и
+        # указываем для какого пользователя будут сохранены значения (изменения) и принимать файлы
+        form = ProfileForm(data=request.POST, instance=request.user, files=request.FILES)
+        if form.is_valid():
+            form.save()
+            # автоматически проходит авторизацию при регистрации и попадает на главный экран
+            user = form.instance
+            auth.login(request, user)
+            return HttpResponseRedirect(reverse('user:profile'))
+    else:
+        form = ProfileForm(instance=request.user)
+
     context = {
-        'title': 'TechnoLite - Личный кабинет'
+        'title': 'TechnoLite - Личный кабинет',
+        'form': form
     }
     return render(request, 'users/profile.html', context)
 
+@login_required
 def logout(request):
     auth.logout(request)
     return redirect(reverse('main:index'))
