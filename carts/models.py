@@ -23,8 +23,8 @@ class Cart(models.Model):
 
     class Meta:
         db_table = 'cart'
-        verbose_name = 'Корзина'
-        verbose_name_plural = 'Корзина'
+        verbose_name = 'Корзину'
+        verbose_name_plural = 'Корзин(ы)'
 
     objects = CartQueryset().as_manager()
 
