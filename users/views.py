@@ -17,6 +17,10 @@ def login(request):
             if user:
                 # проходит авторизация
                 auth.login(request, user)
+
+                #
+                if request.POST.get('next', None):
+                    return HttpResponseRedirect(request.POST.get('next'))
                 return HttpResponseRedirect(reverse('main:index'))
     else:
         form = UserLoginForm()
@@ -66,6 +70,9 @@ def profile(request):
         'form': form
     }
     return render(request, 'users/profile.html', context)
+
+def users_cart(request):
+    return render(request, 'users/users_cart.html')
 
 @login_required
 def logout(request):
