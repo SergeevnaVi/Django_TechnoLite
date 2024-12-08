@@ -10,16 +10,31 @@ def cart_add(request):
     product_id = request.POST.get('product_id')
     product = Products.objects.get(id=product_id)
 
+    # Создаём сессию для неавторизованного пользователя
+    # if not request.session.session_key:
+    #     request.session.create()
+
     if request.user.is_authenticated:
+        # Обработка для авторизованных пользователей
         carts = Cart.objects.filter(user=request.user, product=product)
 
         if carts.exists():
             cart = carts.first()
-            if cart:
-                cart.quantity += 1
-                cart.save()
+            cart.quantity += 1
+            cart.save()
         else:
             Cart.objects.create(user=request.user, product=product, quantity=1)
+
+    else:
+        # Обработка для неавторизованных пользователей
+        carts = Cart.objects.filter(session_key=request.session.session_key, product=product)
+
+        if carts.exists():
+            cart = carts.first()
+            cart.quantity += 1
+            cart.save()
+        else:
+            Cart.objects.create(session_key=request.session.session_key, product=product, quantity=1)
 
     user_cart = get_user_carts(request)
     cart_items_html = render_to_string(
