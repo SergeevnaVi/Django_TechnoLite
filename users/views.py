@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.contrib import auth
+from django.contrib import auth, messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
@@ -17,10 +17,7 @@ def login(request):
             if user:
                 # проходит авторизация
                 auth.login(request, user)
-
-                #
-                if request.POST.get('next', None):
-                    return HttpResponseRedirect(request.POST.get('next'))
+                messages.success(request, f'{username}, Вы вошли в аккаунт')
                 return HttpResponseRedirect(reverse('main:index'))
     else:
         form = UserLoginForm()
@@ -39,6 +36,7 @@ def registration(request):
             # автоматически проходит авторизацию при регистрации и попадает на главный экран
             user = form.instance
             auth.login(request, user)
+            messages.success(request, f'{user.username}, Вы вошли в аккаунт')
             return HttpResponseRedirect(reverse('main:index'))
     else:
         form = UserRegistrationForm()
@@ -76,5 +74,6 @@ def users_cart(request):
 
 @login_required
 def logout(request):
+    messages.success(request, f'{request.user.username}, Вы вышли из аккаунта')
     auth.logout(request)
     return redirect(reverse('main:index'))
