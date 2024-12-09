@@ -4,15 +4,25 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, User
 from .models import User
 
 
-# этот класс нужен, чтобы применить валидаторы на вводимые данные (проверка на соответствие)
-# бывают формы: не связанные с моделями(таблицами) и связанные с моделями
 class UserLoginForm(AuthenticationForm):
+    """
+    Форма для аутентификации пользователя.
+
+    Используется для проверки введенных данных (имя пользователя и пароль) при входе.
+    В этой форме используются стандартные поля 'username' и 'password'.
+    """
     class Meta:
         model = User
         fields = ['username', 'password']
 
 
 class UserRegistrationForm(UserCreationForm):
+    """
+    Форма для регистрации нового пользователя.
+
+    Включает поля для ввода имени, фамилии, имени пользователя, email и паролей.
+    Также осуществляется проверка на совпадение пароля и подтверждения пароля.
+    """
     class Meta:
         model = User
         fields = ('first_name',
@@ -31,6 +41,11 @@ class UserRegistrationForm(UserCreationForm):
     password2 = forms.CharField()
 
 class ProfileForm(UserChangeForm):
+    """
+    Форма для изменения профиля пользователя.
+
+    Позволяет пользователю изменить аватар, имя, фамилию, имя пользователя и email.
+    """
     class Meta:
         model = User
         fields = (

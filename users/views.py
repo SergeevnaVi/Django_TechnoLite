@@ -10,18 +10,26 @@ from orders.models import OrderItem, Order
 
 
 def login(request):
+    """
+    Представление для страницы авторизации.
+
+    Обрабатывает POST-запрос с данными формы, выполняет аутентификацию пользователя,
+    выполняет авторизацию и перенаправляет на главную страницу, если вход успешен.
+    В случае ошибки возвращает форму с сообщением об ошибке.
+    """
     if request.method == 'POST':
-        form = UserLoginForm(data=request.POST)  # наполняем данными которые ввел пользователь
+        # Наполняем данными которые ввел пользовательм
+        form = UserLoginForm(data=request.POST)
         if form.is_valid():
             username = request.POST['username']
             password = request.POST['password']
-            # если такой пользователь есть, то он вернет данные в переменную user
+            # Если такой пользователь есть, то он вернет данные в переменную user
             user = auth.authenticate(username=username, password=password)
 
             session_key = request.session.session_key
 
             if user:
-                # проходит авторизация
+                # Если аутентификация успешна
                 auth.login(request, user)
                 messages.success(request, f'{username}, Вы вошли в аккаунт')
 
@@ -38,7 +46,13 @@ def login(request):
     }
     return render(request, 'users/login.html', context)
 
+
 def password(request):
+    """
+    Представление для страницы восстановления пароля.
+
+    Показывает информацию о восстановлении пароля и контактные данные службы поддержки.
+    """
     context = {
         'title': 'TechnoLite - Восстановление пароля',
         'content': 'Восстановление пароля',
@@ -50,15 +64,23 @@ def password(request):
     }
     return render(request, 'users/password.html', context)
 
+
 def registration(request):
+    """
+    Представление для страницы регистрации нового пользователя.
+
+    При успешной регистрации автоматически выполняется вход и перенаправление
+    на главную страницу. Если регистрация не удалась, возвращается форма с ошибками.
+    """
     if request.method == 'POST':
-        form = UserRegistrationForm(data=request.POST)  # наполняем данными которые ввел пользователь
+        # Наполняем данными которые ввел пользователь
+        form = UserRegistrationForm(data=request.POST)
         if form.is_valid():
             form.save()
 
             session_key = request.session.session_key
 
-            # автоматически проходит авторизацию при регистрации и попадает на главный экран
+            # Автоматически проходит авторизация при обновлении данных
             user = form.instance
             auth.login(request, user)
 
@@ -76,22 +98,28 @@ def registration(request):
     }
     return render(request, 'users/registration.html', context)
 
-# Запретить доступ к контроллерам - не авторизованным пользователям
+
 @login_required
 def profile(request):
+    """
+    Представление для страницы личного кабинета пользователя.
+
+    Позволяет пользователю обновить свои данные (имя, email, аватар).
+    Отображает историю заказов пользователя.
+    """
     if request.method == 'POST':
-        # наполняем данными которые ввел пользователь и
-        # указываем для какого пользователя будут сохранены значения (изменения) и принимать файлы
+        # Наполняем данными формы и сохраняем изменения для текущего пользователя
         form = ProfileForm(data=request.POST, instance=request.user, files=request.FILES)
         if form.is_valid():
             form.save()
-            # автоматически проходит авторизацию при регистрации и попадает на главный экран
+            # Автоматически проходит авторизация при обновлении данных
             user = form.instance
             auth.login(request, user)
             return HttpResponseRedirect(reverse('user:profile'))
     else:
         form = ProfileForm(instance=request.user)
 
+    # Получаем заказы пользователя с предзагрузкой связанных объектов (OrderItem)
     orders = (
         Order.objects.filter(user=request.user).prefetch_related(
             Prefetch(
@@ -111,10 +139,20 @@ def profile(request):
     return render(request, 'users/profile.html', context)
 
 def users_cart(request):
+    """
+    Представление для страницы корзины пользователя.
+
+    Показывает информацию о товарах в корзине пользователя.
+    """
     return render(request, 'users/users_cart.html')
 
 @login_required
 def logout(request):
+    """
+    Представление для выхода пользователя из аккаунта.
+
+    После выхода, перенаправляет пользователя на главную страницу с сообщением об успешном выходе.
+    """
     messages.success(request, f'{request.user.username}, Вы вышли из аккаунта')
     auth.logout(request)
     return redirect(reverse('main:index'))

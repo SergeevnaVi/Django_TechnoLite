@@ -34,9 +34,15 @@ class Products(models.Model):
         return f'{self.name}. Количество - {self.quantity}'
 
     def display_id(self):
+        """
+        Возвращает уникальный идентификатор товара, отформатированный с ведущими нулями (например, 00001).
+        """
         return f'{self.id:05}'
 
     def sell_price(self):
+        """
+        Рассчитывает цену товара с учетом скидки. Если скидка есть, применяет ее, иначе возвращает обычную цену.
+        """
         if self.discount:
-            return round(self.price - (self.price*self.discount/100), 2)
+            return round(self.price - (self.price * self.discount / 100), 2)
         return self.price

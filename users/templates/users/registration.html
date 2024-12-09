@@ -16,6 +16,8 @@
                 <form action="{% url 'user:registration' %}" method="post">
                     {% csrf_token %}
                     <div class="row">
+
+                        <!-- Поле для имени -->
                         <div class="col-md-6 mb-3">
                             <label for="id_first_name" class="form-label">Имя*</label>
                             <input type="text" class="form-control" id="id_first_name"
@@ -26,6 +28,7 @@
                                     <div class="alert alert-danger alert-dismissible fade show">{{form.first_name.errors}}</div>
                                     {% endif %}
                         </div>
+                        <!-- Поле для фамилии -->
                         <div class="col-md-6 mb-3">
                             <label for="id_last_name" class="form-label">Фамилия*</label>
                             <input type="text" class="form-control" id="id_last_name"
@@ -36,6 +39,7 @@
                                     <div class="alert alert-danger alert-dismissible fade show">{{form.last_name.errors}}</div>
                                     {% endif %}
                         </div>
+                        <!-- Поле для имени пользователя -->
                         <div class="col-md-6 mb-3">
                             <label for="id_username" class="form-label">Имя пользователя*</label>
                             <input type="text" class="form-control" id="id_username"
@@ -46,6 +50,7 @@
                                     <div class="alert alert-danger alert-dismissible fade show">{{form.username.errors}}</div>
                                     {% endif %}
                         </div>
+                        <!-- Поле для email -->
                         <div class="col-md-6 mb-3">
                             <label for="id_email" class="form-label">Email*</label>
                             <input type="email" class="form-control" id="id_email"
@@ -56,6 +61,7 @@
                                     <div class="alert alert-danger alert-dismissible fade show">{{form.email.errors}}</div>
                                     {% endif %}
                         </div>
+                        <!-- Поле для пароля -->
                         <div class="col-md-6 mb-3">
                             <label for="id_password1" class="form-label">Пароль*</label>
                             <input type="password" class="form-control" id="id_password1"
@@ -66,6 +72,7 @@
                                     <div class="alert alert-danger alert-dismissible fade show">{{form.password1.errors}}</div>
                                     {% endif %}
                         </div>
+                        <!-- Поле для подтверждения пароля -->
                         <div class="col-md-6 mb-3">
                             <label for="id_password2" class="form-label">Подтверждение пароля*</label>
                             <input type="password" class="form-control" id="id_password2"

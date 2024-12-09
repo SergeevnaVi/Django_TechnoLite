@@ -2,32 +2,38 @@
 {% load static %}
 
 {% block modal_cart %}
+<!-- Включение кнопки для доступа к корзине -->
 {% include 'includes/cart_button.html' %}
 {% endblock %}
 
 {% block content %}
-<!-- Контент на странице -->
+<!-- Основной контент страницы -->
 <div class="container mt-5">
+    <!-- Карта товара -->
     <div class="card mb-4 custom-shadow">
         <div class="row">
-            <!-- Миниатюры -->
+            <!-- Блок для отображения изображения товара -->
             <div class="col-md-4">
+                <!-- Проверяем, есть ли изображение у товара -->
                 <img src="{{ product.image.url }}"
                      class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal1">
             </div>
+            <!-- Блок для отображения дополнительной информации -->
             <div class="col-md-4 ">
                 <p class="product_id mt-3">id: {{ product.display_id }}</p>
             </div>
-            <!-- Увеличить изображение в модальном окне -->
+            <!-- Модальное окно для увеличенного изображения -->
             <div class="modal fade" id="imageModal1" tabindex="-1"
                  aria-labelledby="imageModal1Label" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
+                        <!-- Заголовок модального окна -->
                         <div class="modal-header">
                             <h5 class="modal-title" id="imageModal1Label">{{ product.name }}</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Закрыть"></button>
                         </div>
+                        <!-- Тело модального окна с увеличенным изображением -->
                         <div class="modal-body">
                             <img src="{{ product.image.url }}"
                                  class="img-fluid" alt="Изображение 1">
@@ -36,14 +42,15 @@
                 </div>
             </div>
         </div>
-        <!-- Описание товара -->
+        <!-- Блок описания товара -->
         <div class="card-body">
+            <!-- Отображение цены с проверкой на скидку -->
             <p class="card-text">Цена: <strong>{{ product.sell_price }} руб.</strong></p>
             <h5 class="card-title">{{ product.name }}</h5>
             <p class="card-text">{{ product.description }}</p>
             <a href="{% url 'cart:cart_add' %}" class="btn btn-dark add-to-cart"
             data-product-id="{{ product.id }}">
-            {% csrf_token %}
+            {% csrf_token %} <!-- CSRF-токен для защиты от подделки запросов -->
             Добавить в корзину</a>
         </div>
     </div>

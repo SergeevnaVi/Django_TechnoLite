@@ -1,11 +1,14 @@
 {% load static %}
 
+<!-- Проверяем наличие ошибок формы, которые не привязаны к конкретным полям -->
 {% if form.non_field_errors %}
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-md-6">
+                <!-- Выводим ошибки формы в виде оповещения -->
                 <div class="alert alert-danger alert-dismissible fade show custom-shadow" role="alert">
                     {{form.non_field_errors}}
+                    <!-- Кнопка для закрытия оповещения -->
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             </div>
@@ -13,24 +16,28 @@
     </div>
 {% endif %}
 
-<!-- Для оповещений -->
+<!-- Контейнер для уведомлений -->
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-6">
             {% if messages %}
+                <!-- Перебираем все сообщения, переданные в контекст -->
                 {% for message in messages %}
+                    <!-- Если сообщение с тегом "success", отображаем его в зелёной рамке -->
                     {% if message.tags == 'success' %}
                     <div id="notification" class="position-fixed start-50 translate-middle-x z-3 alert alert-success fade show custom-shadow" role="alert">
                         {{ message }}
                     </div>
                     {% endif %}
+                    <!-- Если сообщение с тегом "warning", отображаем его в красной рамке -->
                     {% if message.tags == 'warning' %}
-                    <div id="notification" class="position-fixed start-50 translate-middle-x z-3 alert alert-danger fade show custom-shadow" role="alert">
+                    <div id="notification1" class="position-fixed start-50 translate-middle-x z-3 alert alert-danger fade show custom-shadow" role="alert">
                         {{ message }}
                     </div>
                     {% endif %}
                 {% endfor %}
             {% else %}
+            <!-- Место для уведомлений, которые могут быть добавлены через JavaScript -->
             <div id="jq-notification" class="position-fixed start-50 translate-middle-x z-3 alert alert-success fade show custom-shadow" style="display: none;" role="alert">
             </div>
             {% endif %}

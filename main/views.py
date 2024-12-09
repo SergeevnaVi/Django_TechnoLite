@@ -1,9 +1,11 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from products.models import Categories
 
 def index(request):
-
+    """
+    Представление для главной страницы.
+    Отображает информацию о магазине бытовой техники.
+    """
     context = {
         'title': 'TechnoLite - Главная',
         'content': 'Магазин бытовой техники TechnoLite',
@@ -12,6 +14,10 @@ def index(request):
 
 
 def about(request):
+    """
+    Представление для страницы "О нас".
+    Содержит описание компании, её миссию и основные преимущества.
+    """
     context = {
         'name': 'TechnoLite',
         'title': 'TechnoLite - О нас',
@@ -31,6 +37,10 @@ def about(request):
 
 
 def delivery_and_payment(request):
+    """
+    Представление для страницы "Доставка и оплата".
+    Описывает доступные методы доставки и способы оплаты.
+    """
     context = {
         'title': 'TechnoLite - Доставка и оплата',
         'content': 'Информация о доставке и оплате',
@@ -47,6 +57,10 @@ def delivery_and_payment(request):
     return render(request, 'main/delivery_and_payment.html', context)
 
 def contact_info(request):
+    """
+    Представление для страницы "Контактная информация".
+    Содержит контактные данные компании, включая адрес, телефон и ссылки на социальные сети.
+    """
     context = {
         'name': 'TechnoLite',
         'title': 'TechnoLite - Контактная информация',

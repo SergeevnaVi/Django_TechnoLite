@@ -2,30 +2,35 @@
 <html lang="en">
 
 <head>
-    {% load static %}
-    {% load products_tags %}
+    {% load static %} <!-- Загрузка шаблонного тега для статических файлов -->
+    {% load products_tags %} <!-- Загрузка пользовательских шаблонных тегов -->
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Подключение стилей Bootstrap и пользовательского CSS -->
     <link rel="stylesheet" href="{% static 'deps/css/bootstrap/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'deps/css/my_css.css' %}">
-    <!-- Стиль footer-a для главной страницы -->
-    {% block css %}
+    <!-- Подключение дополнительных CSS для страниц -->
+    {% block css %}{% endblock %}
 
-    {% endblock %}
-    <!-- Favicons for different platforms -->
+    <!-- Подключение favicon -->
     <link rel="chrome" sizes="180x180" href="{% static 'deps/favicon/chrome-190x190.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'deps/favicon/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'deps/favicon/favicon-16x16.png' %}">
     <link rel="manifest" href="{% static 'deps/favicon/site.webmanifest' %}">
+
     <title>{{ title }}</title>
 </head>
 
 <body>
+    <!-- Шапка с навигацией -->
     <header>
         <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
             <div class="container">
+                <!-- Логотип -->
                 <a class="navbar-brand" href="{% url 'main:index' %}">TechnoLite</a>
+                <!-- Кнопка для раскрытия меню на мобильных устройствах -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -33,14 +38,18 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <!-- Пункт меню "Информация" с подменю -->
                         <li class="nav-item dropdown ">
                             <a class="nav-link dropdown-toggle text-white" href="{% url 'main:index' %}" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Информация
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item  text-white" href="{% url 'main:delivery_and_payment' %}">Доставка и оплата</a></li>
-                                <li><a class="dropdown-item  text-white" href="{% url 'main:contact_info' %}">Контактная информация</a></li>
+                                <!-- Ссылки внутри подменю -->
+                                <li><a class="dropdown-item  text-white" href="{% url 'main:delivery_and_payment' %}">
+                                    Доставка и оплата</a></li>
+                                <li><a class="dropdown-item  text-white" href="{% url 'main:contact_info' %}">
+                                    Контактная информация</a></li>
                                 <li><a class="dropdown-item  text-white" href="{% url 'main:about' %}">Про нас</a></li>
                             </ul>
                         </li>
@@ -49,23 +58,27 @@
                             <a class="nav-link  text-white" href="{% url 'user:users_cart' %}">Корзина</a>
                         </li>
 
-                        <!-- если пользователь не авторизован, то ему отображается кнопка "Войти" -->
+                        <!-- Ссылка "Войти" для неавторизованных пользователей -->
                         {% if not user.is_authenticated %}
                             <li class="nav-item">
                                 <a class="nav-link  text-white" href="{% url 'user:login' %}">Войти</a>
                             </li>
                         {% else %}
+                            <!-- Меню профиля для авторизованных пользователей -->
                             <li class="nav-item dropdown ">
                                 <a class="nav-link dropdown-toggle text-white" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     Мой профиль
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item  text-white" href="{% url 'user:users_cart' %}">Корзина</a></li>
-                                    <li><a class="dropdown-item  text-white" href="{% url 'user:profile' %}">Личный кабинет</a>
+                                    <li><a class="dropdown-item  text-white" href="{% url 'user:users_cart' %}">
+                                        Корзина</a></li>
+                                    <li><a class="dropdown-item  text-white" href="{% url 'user:profile' %}">
+                                        Личный кабинет</a>
                                     </li>
                                     {% if user.is_admin or user.is_staff %}
-                                        <li><a class="dropdown-item  text-white" href="{% url 'admin:index' %}">Админ панель</a></li>
+                                        <li><a class="dropdown-item  text-white" href="{% url 'admin:index' %}">
+                                            Админ панель</a></li>
                                     {% endif %}
                                     <li>
                                         <hr class="dropdown-divider">
@@ -75,6 +88,7 @@
                             </li>
                         {% endif %}
                     </ul>
+                    <!-- Поле поиска -->
                     <form class="d-flex" role="search" action="{% url 'catalog:search' %}" method="get">
                         <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success text-white" type="submit">Поиск</button>
@@ -83,12 +97,14 @@
             </div>
         </nav>
     </header>
+
+    <!-- Основной контент -->
     <section>
         <div class="container">
             <!-- Каталог и корзина с фиксированным расположением на странице -->
             <div class="row mt-1 position-fixed z-3">
-                <!-- Каталог -->
                 <div class="dropdown mb-2">
+                    <!-- Кнопка для раскрытия категорий каталога -->
                     <button class="btn btn-secondary dropdown-toggle btn-dark" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         Каталог
@@ -96,39 +112,39 @@
                             height="16">
                     </button>
                     <ul class="dropdown-menu bg-dark" data-bs-theme="dark">
+                        <!-- Отображение категорий с помощью пользовательского тега -->
                         {% tags_categories as categories %}
                         {% for category in categories %}
-                            <li><a class="dropdown-item text-white" href="{% url 'catalog:index' category.slug %}">{{ category.name }}</a></li>
+                            <li><a class="dropdown-item text-white" href="{% url 'catalog:index' category.slug %}">
+                                {{ category.name }}</a></li>
                         {% endfor %}
                     </ul>
                 </div>
-                <!-- Значок корзины, вызывает модальное окно -->
+                <!-- Блок для модального окна корзины -->
                 {% block modal_cart %}{% endblock %}
-                <!-- Закончилась разметка модального окна -->
+
             </div>
         </div>
-        <!-- Контент -->
+        <!-- Контейнер для вывода основного контента -->
         <div class="container">
             <div class="row mt-1">
-                <div class="col-lg-2">
-                    <!-- Пустой блок на Ваше усмотрение -->
-                </div>
+                <div class="col-lg-2"></div>
                 <div class="col-lg-10">
-                    <!-- Контент на странице -->
-                    <!-- Для ошибок -->
+                    <!-- Уведомления -->
                     {% include 'includes/notifications.html' %}
+                    <!-- Контент страницы -->
                     {% block content %}{% endblock %}
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Блок для футера -->
     {% block footer %}{% endblock %}
 
+    <!-- Подключение скриптов -->
     <script src="{% static 'deps/js/jquery/jquery-3.7.0.min.js' %}"></script>
     <script src="{% static 'deps/js/jquery-ajax.js' %}"></script>
     <script src="{% static 'deps/js/bootstrap/bootstrap.bundle.min.js' %}"></script>
-
 </body>
-
 </html>

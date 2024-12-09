@@ -1,3 +1,4 @@
+<!-- Наследование от базового шаблона, чтобы использовать общую структуру страницы -->
 {% extends 'base.html' %}
 
 {% load static %}
@@ -7,11 +8,14 @@
 {% endblock %}
 
 {% block title %}
-{{ title }}
+    <!-- Заголовок страницы, задаваемый через переменную контекста -->
+    {{ title }}
 {% endblock %}
 
 {% block content %}
+    <!-- Контейнер Bootstrap с верхним отступом -->
     <div class="container mt-5">
+        <!-- Основной блок с белым фоном, рамкой, закругленными углами и тенью -->
         <div class="p-4 bg-white border border-dark rounded custom-shadow">
             <h1 class="text-center mb-4">{{ content }}</h1>
             <p class="fs-5">{{text_on_page}}</p>

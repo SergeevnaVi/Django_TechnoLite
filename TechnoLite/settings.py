@@ -148,8 +148,11 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
+# Указывает, что для первичных ключей по умолчанию будет использоваться BigAutoField (64-битный).
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Настройка кастомной модели пользователя из приложения "users".
 AUTH_USER_MODEL = 'users.User'
 
+# URL страницы входа для неавторизованных пользователей.
 LOGIN_URL = '/user/login/'

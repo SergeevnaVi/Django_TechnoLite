@@ -1,10 +1,13 @@
 from django.db import models
-
 from users.models import User
 from products.models import Products
 
-# общая стоимость товаров в корзине и их кол-во
+
 class CartQueryset(models.QuerySet):
+    """
+    Класс, расширяющий QuerySet для работы с корзинами.
+    Добавляет методы для вычисления общей стоимости и количества товаров в корзине.
+    """
     def total_price(self):
         return sum(cart.products_price() for cart in self)
 
@@ -15,6 +18,10 @@ class CartQueryset(models.QuerySet):
 
 
 class Cart(models.Model):
+    """
+    Модель корзины покупок, представляющая товары, добавленные в корзину пользователем.
+    Хранит информацию о пользователе, товаре, количестве товаров, сессионном ключе и времени добавления.
+    """
     user = models.ForeignKey(to=User, on_delete=models.CASCADE, blank=True, null=True, verbose_name='Пользователь')
     product = models.ForeignKey(to=Products, on_delete=models.CASCADE, verbose_name='Товар')
     quantity = models.PositiveSmallIntegerField(default=0, verbose_name='Количество')
@@ -26,6 +33,7 @@ class Cart(models.Model):
         verbose_name = 'Корзину'
         verbose_name_plural = 'Корзин(ы)'
 
+    # Менеджер для корзины с методами подсчета
     objects = CartQueryset().as_manager()
 
     def products_price(self):

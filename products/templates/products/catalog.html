@@ -3,44 +3,52 @@
 {% load products_tags %}
 
 {% block modal_cart %}
+<!-- Включение кнопки корзины из отдельного шаблона -->
 {% include 'includes/cart_button.html' %}
 {% endblock %}
 
 {% block content %}
-<!-- Контент на странице -->
 <div class="row">
-    <!-- Форма фильтров -->
+    <!-- Выпадающий список с фильтрами -->
     <div class="dropdown mb-2">
         <button class="btn btn-secondary dropdown-toggle btn-dark" type="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
             Фильтры
         </button>
 
-        <form action="{% if request.GET.q %}{% url 'catalog:search' %}{% else %}{% url 'catalog:index' slug_url %}{% endif %}" method="get" class="dropdown-menu bg-dark" data-bs-theme="dark">
+        <!-- Форма фильтров с метод GET для передачи параметров -->
+        <form action="{% if request.GET.q %}{% url 'catalog:search' %}{% else %}{% url 'catalog:index' slug_url %}{% endif %}"
+              method="get" class="dropdown-menu bg-dark" data-bs-theme="dark">
+            <!-- Фильтр по акциям -->
             <div class="form-check text-white mx-3">
                 <input class="form-check-input" type="checkbox" name="on_sale" id="flexCheckDefault" value="on" {% if request.GET.on_sale == "on" %} checked {% endif %}>
                 {% if request.GET.q %}
+                    <!-- Сохранение строки поиска при фильтрации -->
                     <input type="hidden" name="q" value="{{request.GET.q}}">
                 {% endif %}
                 <label class="form-check-label" for="flexCheckDefault">
                     Товары по акции
                 </label>
             </div>
+            <!-- Фильтр сортировки -->
             <p class="text-white mx-3 mt-3">Сортировать:</p>
             <div class="form-check text-white mx-3">
-                <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault1" value="default"{% if not request.GET.order_by or request.GET.order_by == 'default' %} checked {% endif %}>
+                <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault1" value="default"
+                       {% if not request.GET.order_by or request.GET.order_by == 'default' %} checked {% endif %}>
                 <label class="form-check-label" for="flexRadioDefault1">
                     По умолчанию
                 </label>
             </div>
             <div class="form-check text-white mx-3">
-                <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault2" value="price"{% if request.GET.order_by == 'price' %} checked {% endif %}>
+                <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault2" value="price"
+                       {% if request.GET.order_by == 'price' %} checked {% endif %}>
                 <label class="form-check-label" for="flexRadioDefault2">
                     От дешевых к дорогим
                 </label>
             </div>
             <div class="form-check text-white mx-3">
-                <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault3" value="-price"{% if request.GET.order_by == '-price' %} checked {% endif %}>
+                <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault3" value="-price"
+                       {% if request.GET.order_by == '-price' %} checked {% endif %}>
                 <label class="form-check-label" for="flexRadioDefault3">
                     От дорогих к дешевым
                 </label>
@@ -53,7 +61,7 @@
     {% if request.GET.q %}
     <h3 class="mt-4">Результат поиска по запросу {{request.GET.q}}</h3>
     {% if not products %}
-        <!-- привязываем футер к нижней части страницы -->
+        <!-- Подключение CSS для корректного отображения футера на пустой странице -->
         <link rel="stylesheet" href="{% static 'deps/css/my_footer_css.css' %}">
         <h2 class="mt-4">По запросу ничего не найдено</h2>
     {% endif %}
@@ -63,27 +71,32 @@
         <div class="col-lg-4 col-md-6 p-4">
             <div class="card border-primary rounded custom-shadow">
                 {% if product.image %}
+                    <!-- Если у товара есть изображение, отображаем его -->
                     <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
                 {% else %}
+                    <!-- Если изображения нет, используем заглушку -->
                     <img src="{% static 'deps/images/Not found image.png' %}" class="card-img-top" alt="...">
                 {% endif %}
                 <div class="card-body">
                     <a href="{% url 'catalog:product' product.slug %}">
+                        <!-- Название товара -->
                         <p class="card-title">{{ product.name }}</p>
                     </a>
-                    <!-- Сокращаем описание (text-truncate) -->
+                    <!-- Сокращаем описание (text-truncate) с сокращением текста -->
                     <p class="card-text text-truncate">{{ product.description }}</p>
                     <p class="product_id">id: {{ product.display_id }}</p>
                     <div class="d-flex justify-content-between">
 
                         {% if product.discount %}
+                            <!-- Если товар со скидкой -->
                             <p><s>{{ product.price }}</s> руб.</p>
                             <p><strong>{{ product.sell_price }} руб.</strong></p>
                             <span class="badge bg-warning text-dark">Скидка {{ product.discount }} %</span>
                         {% else %}
+                            <!-- Если товар без скидки -->
                             <p><strong>{{ product.price }} руб.</strong></p>
                         {% endif %}
-
+                        <!-- Кнопка добавления товара в корзину -->
                         <a href="{% url 'cart:cart_add' %}" class="btn add-to-cart"
                         data-product-id="{{ product.id }}">
                             {% csrf_token %}
@@ -100,14 +113,18 @@
 
 </div>
 <!-- Пагинация -->
-{% if products %}  <!-- если есть товар, то отображаем пагинацию -->
+{% if products %}
+    <!-- Если есть товары, отображаем пагинацию -->
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center my-4">
             <div class="custom-shadow d-flex">
+                <!-- Кнопка для перехода на предыдущую страницу -->
                 <li class="page-item {% if not products.has_previous %} disabled {% endif %}">
-                    <a class="page-link" href="{% if products.has_previous %}?{% change_params page=products.previous_page_number %}{% else %}#{% endif %}">Назад</a>
+                    <a class="page-link" href="{% if products.has_previous %}?{% change_params page=products.previous_page_number %}
+                    {% else %}#{% endif %}">Назад</a>
                 </li>
 
+                <!-- Генерация списка страниц -->
                 {% for page in products.paginator.page_range%}
                 {% if page >= products.number|add:-2 and page <= products.number|add:2 %}
                     <!-- Указатель текущей страницы -->
@@ -118,8 +135,10 @@
                 {% endif %}
                 {% endfor %}
 
+                <!-- Кнопка для перехода на следующую страницу -->
                 <li class="page-item {% if not products.has_next %} disabled {% endif %}">
-                    <a class="page-link" href="{% if products.has_next %}?{% change_params page=products.next_page_number %}{% else %}#{% endif %}">Вперед</a>
+                    <a class="page-link" href="{% if products.has_next %}?{% change_params page=products.next_page_number %}
+                    {% else %}#{% endif %}">Вперед</a>
                 </li>
             </div>
         </ul>
@@ -128,6 +147,7 @@
 {% endblock %}
 
 {% block footer %}
+<!-- Футер страницы -->
 <footer class="py-4 bg-dark">
     <div class="container">
         <p class="m-0 text-center text-white">&copy; TechoLite 2024</p>

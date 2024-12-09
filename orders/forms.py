@@ -1,7 +1,7 @@
 from django import forms
 
-class CreateOrderForm(forms.Form):
 
+class CreateOrderForm(forms.Form):
     first_name = forms.CharField()
     last_name = forms.CharField()
     phone_number = forms.CharField()
@@ -11,10 +11,8 @@ class CreateOrderForm(forms.Form):
             ("1", True),
         ],
     )
-
     delivery_address = forms.CharField(required=False)
 
-    # Заменяем payment_on_get на payment_method
     PAYMENT_CHOICES = [
         ('card', 'Оплата картой'),
         ('cash', 'Наличными/картой при получении')
@@ -22,6 +20,7 @@ class CreateOrderForm(forms.Form):
     payment_method = forms.ChoiceField(
         choices=PAYMENT_CHOICES,
     )
+
 
     def clean_phone_number(self):
         data = self.cleaned_data['phone_number']

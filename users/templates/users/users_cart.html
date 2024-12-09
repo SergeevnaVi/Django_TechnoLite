@@ -3,7 +3,7 @@
 {% load carts_tags %}
 
 {% block content %}
-<!-- запуститься функция из файла carts_tags передастся request и это значение сохраняем под именем carts -->
+<!-- Запускаем пользовательский тег "user_carts", который получает данные корзины и сохраняет их в переменной "carts" (из файла carts_tags). -->
 {% user_carts request as carts %}
     <div class="row">
         <div class="container mt-5">
@@ -11,9 +11,8 @@
                 <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
                     <h3 class="text-center mb-4">Корзина</h3>
                     <div class="container" id="cart-items-container">
-                        <!-- Разметка корзины -->
+                        <!-- Включение шаблона с разметкой корзины -->
                         {% include 'carts/includes/included_cart.html' %}
-                        <!-- Закончилась разметка корзины -->
                     </div>
                 </div>
             </div>

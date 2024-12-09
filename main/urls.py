@@ -1,6 +1,7 @@
 from django.urls import path
 from main import views
 
+# Устанавливаем пространство имён для приложения, чтобы избежать конфликтов с другими приложениями
 app_name = 'main'
 
 urlpatterns = [

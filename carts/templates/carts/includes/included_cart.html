@@ -1,16 +1,20 @@
 {% load static %}
 
-
+<!-- Карта корзины -->
 <div class="card mb-3 text-bg-light shadow-lg">
     {% for cart in carts %}
+        <!-- Заголовок карты с названием продукта -->
         <div class="card-header">
             <h5 class="card-title">{{ cart.product.name }}</h5>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
+                <!-- Разметка для отображения количества товара и его цены -->
                 <div class="row text-center">
+                    <!-- Колонка для изменения количества товара -->
                     <div class="col p-0">
                         <div class="input-group">
+                            <!-- Кнопка уменьшения количества товара -->
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-dark btn-sm decrement"
                                         data-cart-id="{{ cart.id }}"
@@ -18,8 +22,10 @@
                                     {% csrf_token %}
                                     -</button>
                             </span>
+                            <!-- Ввод количества товара (только для чтения) -->
                             <input type="text" class="form-control number" value="{{ cart.quantity }}"
                                    readonly>
+                            <!-- Кнопка увеличения количества товара -->
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-dark btn-sm increment"
                                         data-cart-id="{{ cart.id }}"
@@ -29,10 +35,13 @@
                             </span>
                         </div>
                     </div>
+                    <!-- Колонка для отображения цены одного товара -->
                     <div class="col p-0">
                         <p>x {{ cart.product.sell_price }} = </p>
                     </div>
+                    <!-- Колонка для отображения общей цены этого товара -->
                     <div class="col p-0"><strong>{{ cart.products_price }} руб.</strong></div>
+                    <!-- Колонка для удаления товара из корзины -->
                     <div class="col p-0">
                         <a href="{% url 'cart:cart_remove' %}" class="remove-from-cart"
                            data-cart-id="{{ cart.id }}">
@@ -46,12 +55,18 @@
         </ul>
     {% endfor %}
 </div>
+
+<!-- Карточка с итогами корзины -->
 <div class="card mb-3 shadow-lg">
     <div class="card-footer">
+        <!-- Отображение общего количества товаров в корзине -->
         <p class="float-left">Итого <strong>{{carts.total_quantity}}</strong> товар(а) на сумму</p>
+        <!-- Отображение общей стоимости товаров в корзине -->
         <h4 class="float-left"><strong>{{ carts.total_price }} руб.</strong></h4>
     </div>
 </div>
+
+<!-- Если корзина не пуста и заказ еще не оформлен, отображается кнопка для оформления заказа -->
 {% if carts and not order %}
     <a class="btn btn-dark" href="{% url 'orders:create_order' %}">
         Оформить заказ

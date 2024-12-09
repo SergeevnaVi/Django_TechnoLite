@@ -1,30 +1,39 @@
+<!-- Наследование от базового шаблона, чтобы использовать общую структуру и стиль страниц -->
 {% extends "base.html" %}
 
+<!-- Загрузка тега для работы с файлами статики -->
 {% load static %}
 
 {% block title %}
-{{title}}
+    <!-- Динамическое указание заголовка страницы через переменную из контекста -->
+    {{ title }}
 {% endblock %}
 
 {% block css %}
+    <!-- Подключение дополнительного CSS-файла для кастомных стилей -->
     <link rel="stylesheet" href="{% static 'deps/css/my_footer_css.css' %}">
 {% endblock %}
 
 {% block modal_cart %}
+    <!-- Включение HTML-файла кнопки корзины, что упрощает повторное использование -->
     {% include 'includes/cart_button.html' %}
 {% endblock %}
 
+
 {% block content %}
+    <!-- Контейнер с использованием Bootstrap для создания отступов -->
     <div class="container my-4">
+        <!-- Основной блок с белым фоном, рамкой, закруглением углов и тенью -->
         <div class="p-4 bg-white border border-dark rounded custom-shadow">
-            <h1 class="text-center mb-4">{{content}}</h1>
+            <h1 class="text-center mb-4">{{ content }}</h1>
             <p class="fs-5">
-                Добро пожаловать в <strong>{{name}}</strong>! Мы — современный магазин бытовой техники,
+                Добро пожаловать в <strong>{{ name }}</strong>! Мы — современный магазин бытовой техники,
                 который предлагает широкий ассортимент качественной техники для вашего дома.
             </p>
 
-            <h3 class="mt-4">{{text_on_page}}</h3>
+            <h3 class="mt-4">{{ text_on_page }}</h3>
             <ul class="fs-5">
+                <!-- Динамический список, наполнение передается через контекстные переменные -->
                 <li>{{text1}}</li>
                 <li>{{text2}}</li>
                 <li>{{text3}}</li>

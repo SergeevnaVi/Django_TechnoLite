@@ -1,28 +1,32 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load carts_tags %}
-
+<!--Загружаются теги static для работы со статическими файлами (CSS, JS) и carts_tags для работы с пользовательскими тегами корзины. -->
 
 {% block content %}
 <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
+    <!-- Основной контейнер для страницы -->
     <div class="container">
         <h3 class="text-center mb-4">Выбранные товары</h3>
         <div class="container" id="cart-items-container">
-            <!-- Разметка корзины -->
-            <!-- запуститься функция из файла carts_tags передастся request и это значение сохраняем под именем carts -->
+            <!-- Запускаем пользовательский тег "user_carts", который получает данные корзины и сохраняет их в переменной "carts" (из файла carts_tags). -->
             {% user_carts request as carts %}
+            <!-- Включение шаблона с разметкой корзины -->
             {% include 'carts/includes/included_cart.html' %}
-            <!-- Закончилась разметка корзины -->
         </div>
     </div>
+
     <!-- Детали заказа -->
     <div class="container">
         <h3 class="text-center">Детали заказа</h3>
         <div class="card mb-3">
             <div class="card-body">
+                <!-- Форма отправляет данные для создания заказа на указанный URL -->
                 <form action="{% url 'orders:create_order' %}" method="post" id="create_order_form">
+                    <!-- Токен CSRF для защиты формы от подделки запросов -->
                     {% csrf_token %}
                     <div class="row">
+                        <!-- Поле для ввода имени -->
                         <div class="col-md-6 mb-3">
                             <label for="id_first_name" class="form-label">Имя*:</label>
                             <input type="text" class="form-control" id="id_first_name"
@@ -32,6 +36,8 @@
                                 <div class="alert alert-danger alert-dismissible fade show">{{form.first_name.errors}}</div>
                             {% endif %}
                         </div>
+
+                        <!-- Поле для ввода фамилии -->
                         <div class="col-md-6 mb-3">
                             <label for="id_last_name" class="form-label">Фамилия*:</label>
                             <input type="text" class="form-control" id="id_last_name"
@@ -41,6 +47,8 @@
                                 <div class="alert alert-danger alert-dismissible fade show">{{form.last_name.errors}}</div>
                             {% endif %}
                         </div>
+
+                        <!-- Поле для ввода номера телефона -->
                         <div class="col-md-6 mb-3">
                             <label for="id_phone_number" class="form-label">Номер телефона*:</label>
                             <input type="text" class="form-control" id="id_phone_number" name="phone_number"
@@ -50,22 +58,27 @@
                             {% if form.phone_number.errors %}
                                 <div class="alert alert-danger alert-dismissible fade show" style="display: none" id="phone_number_error">Неверный формат номера</div>
                             {% endif %}
-
                         </div>
+
+                        <!-- Радиокнопки для выбора способа доставки -->
                         <div class="col-md-12 mb-3">
                             <label for="delivery" class="form-label">Способ доставки: </label>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="requires_delivery"
-                                       id="id_requires_delivery" value="1" checked>
-                                <label class="form-check-label" for="id_requires_delivery">Нужна
+                                       id="id_requires_delivery_delivery" value="1"
+                                       {% if form.requires_delivery.value == '1' %}checked{% endif %}>
+                                <label class="form-check-label" for="id_requires_delivery_delivery">Нужна
                                     доставка</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="requires_delivery"
-                                       id="id_requires_delivery" value="0">
-                                <label class="form-check-label" for="id_requires_delivery">Самовывоз</label>
+                                       id="id_requires_delivery_pickup" value="0"
+                                        {% if form.requires_delivery.value == '0' %}checked{% endif %}>
+                                <label class="form-check-label" for="id_requires_delivery_pickup">Самовывоз</label>
                             </div>
                         </div>
+
+                        <!-- Поле для ввода адреса доставки -->
                         <div class="mb-3" id="deliveryAddressField">
                             <label for="id_delivery_address" class="form-label">Адрес
                                 доставки*:</label>
@@ -76,6 +89,8 @@
                                 <div class="alert alert-danger alert-dismissible fade show">{{form.delivery_address.errors}}</div>
                             {% endif %}
                         </div>
+
+                        <!-- Радиокнопки для выбора способа оплаты -->
                         <div class="col-md-12 mb-3">
                             <label class="form-label">Способ оплаты: </label>
                             <div class="form-check form-check-inline">
@@ -97,6 +112,7 @@
                             </div>
                         </div>
                     </div>
+                     <!-- Кнопка отправки формы -->
                     <button type="submit" class="btn btn-dark">Оформить заказ</button>
                 </form>
             </div>
