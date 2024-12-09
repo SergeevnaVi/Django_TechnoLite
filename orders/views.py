@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.forms import ValidationError
 from django.db import transaction
 from django.shortcuts import render, redirect
@@ -8,6 +9,7 @@ from carts.models import Cart
 from orders.models import Order, OrderItem
 
 
+@login_required
 def create_order(request):
     if request.method == 'POST':
         form = CreateOrderForm(data=request.POST)
@@ -68,7 +70,7 @@ def create_order(request):
         form = CreateOrderForm(initial=initial)
 
     context = {
-        'title': 'Home - Оформление заказа',
+        'title': 'TechnoLite - Оформление заказа',
         'form': form,
         'order': True,
     }

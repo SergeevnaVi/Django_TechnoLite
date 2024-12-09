@@ -28,5 +28,4 @@ class CreateOrderForm(forms.Form):
         # Проверка на длину
         if len(data) != 10:
             raise forms.ValidationError("Неверный формат номера")
-
         return data
