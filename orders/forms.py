@@ -11,13 +11,17 @@ class CreateOrderForm(forms.Form):
             ("1", True),
         ],
     )
+
     delivery_address = forms.CharField(required=False)
-    payment_on_get = forms.ChoiceField(
-        choices=[
-            ("0", False),
-            ("1", True),
-            ],
-        )
+
+    # Заменяем payment_on_get на payment_method
+    PAYMENT_CHOICES = [
+        ('card', 'Оплата картой'),
+        ('cash', 'Наличными/картой при получении')
+    ]
+    payment_method = forms.ChoiceField(
+        choices=PAYMENT_CHOICES,
+    )
 
     def clean_phone_number(self):
         data = self.cleaned_data['phone_number']

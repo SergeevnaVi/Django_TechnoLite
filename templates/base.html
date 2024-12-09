@@ -34,13 +34,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item dropdown ">
-                            <a class="nav-link dropdown-toggle text-white" href="#" role="button"
+                            <a class="nav-link dropdown-toggle text-white" href="{% url 'main:index' %}" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Информация
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item  text-white" href="#">Доставка и оплата</a></li>
-                                <li><a class="dropdown-item  text-white" href="#">Контактная информация</a></li>
+                                <li><a class="dropdown-item  text-white" href="{% url 'main:delivery_and_payment' %}">Доставка и оплата</a></li>
+                                <li><a class="dropdown-item  text-white" href="{% url 'main:contact_info' %}">Контактная информация</a></li>
                                 <li><a class="dropdown-item  text-white" href="{% url 'main:about' %}">Про нас</a></li>
                             </ul>
                         </li>
@@ -61,7 +61,7 @@
                                     Мой профиль
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item  text-white" href="carts/cart.html">Корзина</a></li>
+                                    <li><a class="dropdown-item  text-white" href="{% url 'user:users_cart' %}">Корзина</a></li>
                                     <li><a class="dropdown-item  text-white" href="{% url 'user:profile' %}">Личный кабинет</a>
                                     </li>
                                     {% if user.is_admin or user.is_staff %}
@@ -128,6 +128,7 @@
     <script src="{% static 'deps/js/jquery/jquery-3.7.0.min.js' %}"></script>
     <script src="{% static 'deps/js/jquery-ajax.js' %}"></script>
     <script src="{% static 'deps/js/bootstrap/bootstrap.bundle.min.js' %}"></script>
+
 </body>
 
 </html>

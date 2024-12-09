@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'deps/css/my_footer_css.css' %}">
+{% endblock %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="p-4 bg-white border border-dark rounded custom-shadow">
+            <h1 class="text-center mb-4">{{ content }}</h1>
+            <p class="fs-5">{{text_on_page}}</p>
+
+            <h3 class="mt-4">{{ delivery_method }}</h3>
+            <ul class="fs-5">
+                <li>{{methods_del}}</li>
+                <li>{{methods2_del}}</li>
+                <li>{{methods3_del}}</li>
+            </ul>
+
+            <h3 class="mt-4">{{payment_method}}</h3>
+            <ul class="fs-5">
+                <li>{{methods_pay}}</li>
+                <li>{{methods_pay2}}</li>
+                <li>{{methods_pay3}}</li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+<!--{% block footer %}-->
+<!--<footer class="py-4 bg-dark">-->
+<!--    <div class="container">-->
+<!--        <p class="m-0 text-center text-white">&copy; TechnoLite 2024</p>-->
+<!--    </div>-->
+<!--</footer>-->
+<!--{% endblock %}-->

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'deps/css/my_footer_css.css' %}">
+{% endblock %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="p-4 bg-white border border-dark rounded custom-shadow">
+            <h1 class="text-center mb-4">{{content}}</h1>
+            <p class="fs-5">{{text_on_page}}</p>
+
+            <h3 class="mt-4">{{contact}}</h3>
+            <ul class="fs-5">
+                <li><strong>Телефон:</strong> <a href="tel:{{ phone }}" class="text-decoration-none">{{ phone }}</a></li>
+                <li><strong>Email:</strong> <a href="mailto:{{ email }}" class="text-decoration-none">{{ email }}</a></li>
+                <li><strong>Адрес:</strong> {{address}}</li>
+            </ul>
+
+            <h3 class="mt-4">{{social_networks}}</h3>
+            <ul class="fs-5">
+                <li><strong>Telegram:</strong> <a href="https://telegram.com/technolite" target="_blank">{{name}}</a></li>
+                <li><strong>Google:</strong> <a href="https://google.com/technolite" target="_blank">{{name}}</a></li>
+                <li><strong>Whatsapp:</strong> <a href="https://whatsapp.com/technolite" target="_blank">{{name}}</a></li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+<!--{% block footer %}-->
+<!--<footer class="py-4 bg-dark">-->
+<!--    <div class="container">-->
+<!--        <p class="m-0 text-center text-white">&copy; TechnoLite 2024</p>-->
+<!--    </div>-->
+<!--</footer>-->
+<!--{% endblock %}-->

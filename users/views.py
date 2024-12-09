@@ -6,7 +6,6 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from .forms import UserLoginForm, UserRegistrationForm, ProfileForm
 from carts.models import Cart
-
 from orders.models import OrderItem, Order
 
 
@@ -38,6 +37,18 @@ def login(request):
         'form': form
     }
     return render(request, 'users/login.html', context)
+
+def password(request):
+    context = {
+        'title': 'TechnoLite - Восстановление пароля',
+        'content': 'Восстановление пароля',
+        'text_on_page': 'Мы приносим извинения за временные неудобства. Пожалуйста, попробуйте позже.',
+        'text_on_page2': 'Если у вас возникли вопросы, пожалуйста, свяжитесь с нашей службой поддержки.',
+        'phone': '+7 (123) 456-78-90',
+        'email': 'support@technolite.ru',
+        'text_on_page3': 'Мы всегда готовы помочь вам. Пожалуйста, не стесняйтесь обращаться.',
+    }
+    return render(request, 'users/password.html', context)
 
 def registration(request):
     if request.method == 'POST':
@@ -96,6 +107,7 @@ def profile(request):
         'form': form,
         'orders': orders
     }
+    messages.success(request, 'Ваша учетная запись обновлена')
     return render(request, 'users/profile.html', context)
 
 def users_cart(request):
@@ -106,3 +118,4 @@ def logout(request):
     messages.success(request, f'{request.user.username}, Вы вышли из аккаунта')
     auth.logout(request)
     return redirect(reverse('main:index'))
+

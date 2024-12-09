@@ -21,13 +21,18 @@ def create_order(request):
                     cart_items = Cart.objects.filter(user=user)
 
                     if cart_items.exists():
+                        # Получаем выбранный способ оплаты
+                        payment_method = form.cleaned_data['payment_method']  # 'card' или 'cash'
+                        is_paid = payment_method == 'card'  # если оплата картой, то True, если наличными - False
+
                         # Создать заказ
                         order = Order.objects.create(
                             user=user,
                             phone_number=form.cleaned_data['phone_number'],
                             requires_delivery=form.cleaned_data['requires_delivery'],
                             delivery_address=form.cleaned_data['delivery_address'],
-                            payment_on_get=form.cleaned_data['payment_on_get'],
+                            payment_on_get=(payment_method == 'cash'),  # Если 'cash', то True, если 'card' - False
+                            is_paid=is_paid,  # Устанавливаем статус оплаты
                         )
                         # Создать заказанные товары
                         for cart_item in cart_items:
