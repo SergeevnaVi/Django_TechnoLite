@@ -89,8 +89,10 @@ git clone https://github.com/SergeevnaVi/Django_TechnoLite.git
 ```
 
 Или через PyCharm
-
-![img.png](clone.png)
+<details>
+  <summary>Нажмите, чтобы увидеть картинку</summary>
+  ![img.png](readme_assets/clone.png)
+</details>
 
 
 #### 2. В корневой директории проекта создайте виртуальное окружение
