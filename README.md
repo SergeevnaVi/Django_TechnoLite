@@ -89,11 +89,15 @@ git clone https://github.com/SergeevnaVi/Django_TechnoLite.git
 ```
 
 Или через PyCharm
-<details>
-  <summary>Нажмите, чтобы увидеть картинку</summary>
-  ![img.png](readme_assets/clone.png)
-</details>
 
+<details>
+<summary> ❗ Нажмите, чтобы увидеть картинку</summary>
+ 
+[![clone][1]][1]
+ 
+[1]: readme_assets/clone.png
+ 
+</details>
 
 #### 2. В корневой директории проекта создайте виртуальное окружение
 ```
@@ -154,7 +158,14 @@ python manage.py runserver
 
 Приложение будет доступно по адресу: ```http://127.0.0.1:8000```
 
-![img.png](server.png)
+<details>
+<summary> ❗ Нажмите, чтобы увидеть картинку</summary>
+ 
+[![server][2]][2]
+ 
+[2]: readme_assets/server.png
+ 
+</details>
 
 
 ## Инструкция по использованию проекта
@@ -182,7 +193,14 @@ python manage.py runserver
     - Адрес электронной почты: Укажите e-mail адрес.
     - Пароль: Придумайте надежный пароль и подтвердите его.
 
-![img.png](login_up.png)
+<details>
+<summary> ❗ Нажмите, чтобы увидеть картинку</summary>
+ 
+[![login_up][3]][3]
+ 
+[3]: readme_assets/login_up.png
+ 
+</details>
 
 4. После того как вы заполнили все поля, нажмите кнопку Зарегистрироваться.
 
@@ -201,7 +219,14 @@ python manage.py runserver
 3. При необходимости, вы можете открыть страницу товара по ссылке, чтобы узнать более подробную информацию о нем (описание, характеристики, фото, цена).
 
 Пример экрана с товарами:  
-![img.png](catalog_products.png)
+<details>
+<summary> ❗ Нажмите, чтобы увидеть картинку</summary>
+ 
+[![catalog_products][4]][4]
+ 
+[4]: readme_assets/catalog_products.png
+ 
+</details>
 
 ---
 #### 4. Добавление товара в корзину
@@ -214,7 +239,14 @@ python manage.py runserver
 3. После этого откроется всплывающее окно или появится сообщение, подтверждающее, что товар успешно добавлен в корзину. Если это окно не появляется, проверьте, добавлен ли товар в корзину через иконку корзины на главной странице или в меню.
 
 Пример экрана с корзиной:  
-![img.png](cart.png)
+<details>
+<summary> ❗ Нажмите, чтобы увидеть картинку</summary>
+ 
+[![cart][5]][5]
+ 
+[5]: readme_assets/cart.png
+ 
+</details>
 
 ---
 #### 5. Оформление заказа
@@ -238,7 +270,14 @@ python manage.py runserver
 5. После проверки всех данных и выбора способа оплаты, подтвердите заказ.
 
 Пример экрана оформления заказа:  
-![img.png](order.png)
+<details>
+<summary> ❗ Нажмите, чтобы увидеть картинку</summary>
+ 
+[![order][6]][6]
+ 
+[6]: readme_assets/order.png
+ 
+</details>
 
 ---
 #### 6. Админ-панель
@@ -259,7 +298,14 @@ python manage.py runserver
     - Управлять данными пользователей (например, изменять их информацию или блокировать учетные записи).
 
 Пример экрана админ-панели:  
-![img.png](admin_panel.png)
+<details>
+<summary> ❗ Нажмите, чтобы увидеть картинку</summary>
+ 
+[![admin_panel][7]][7]
+ 
+[7]: readme_assets/admin_panel.png
+ 
+</details>
 
 ---
 #### 7. Примеры кода
