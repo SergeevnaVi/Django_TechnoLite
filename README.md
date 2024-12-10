@@ -1,1 +1,1 @@
-# Djamgo_TechnoLite
+# Django_TechnoLite
