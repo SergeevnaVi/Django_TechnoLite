@@ -1,1 +1,51 @@
-[]
+[
+  {
+    "model" : "products.categories" ,
+    "pk" : 2 ,
+    "fields" : {
+      "name" : "Все товары" ,
+      "slug" : "vse-tovary"
+    }
+  } ,
+  {
+    "model" : "products.categories" ,
+    "pk" : 3 ,
+    "fields" : {
+      "name" : "Телевизоры и Цифровое ТВ" ,
+      "slug" : "televizory-i-cifrovoe-tv"
+    }
+  } ,
+  {
+    "model" : "products.categories" ,
+    "pk" : 4 ,
+    "fields" : {
+      "name" : "Мониторы, ноутбуки и планшеты" ,
+      "slug" : "monitory-noutbuki-i-planshety"
+    }
+  } ,
+  {
+    "model" : "products.categories" ,
+    "pk" : 5 ,
+    "fields" : {
+      "name" : "Смартфоны и гаджеты" ,
+      "slug" : "smartfony-i-gadzhety"
+    }
+  } ,
+  {
+    "model" : "products.categories" ,
+    "pk" : 6 ,
+    "fields" : {
+      "name" : "Техника для кухни" ,
+      "slug" : "tehnika-dlya-kuhni"
+    }
+  } ,
+  {
+    "model" : "products.categories" ,
+    "pk" : 7 ,
+    "fields" : {
+      "name" : "Техника для дома" ,
+      "slug" : "tehnika-dlya-doma"
+    }
+  }
+]
+
