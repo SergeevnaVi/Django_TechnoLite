@@ -1,6 +1,7 @@
 from django.urls import path
 from products import views
 
+
 app_name = 'products'
 
 urlpatterns = [
@@ -13,6 +14,5 @@ urlpatterns = [
 
     # Путь для отображения подробной информации о товаре.
     # Принимает slug товара и отображает его детали в отдельном представлении.
-    path('product/<slug:product_slug>/', views.product, name='product'), # конвертор
-
+    path('product/<slug:product_slug>/', views.product, name='product'),
 ]

@@ -11,5 +11,4 @@ urlpatterns = [
     path('users-cart/', views.users_cart, name='users_cart'),
     path('password/', views.password, name='password'),
     path('logout/', views.logout, name='logout'),
-
 ]

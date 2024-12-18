@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
+
+<!--Загружаются теги static для работы со статическими файлами (CSS, JS) и
+carts_tags для работы с пользовательскими тегами корзины. -->
 {% load static %}
 {% load carts_tags %}
-<!--Загружаются теги static для работы со статическими файлами (CSS, JS) и carts_tags для работы с пользовательскими тегами корзины. -->
+
 
 {% block content %}
 <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
@@ -9,7 +12,8 @@
     <div class="container">
         <h3 class="text-center mb-4">Выбранные товары</h3>
         <div class="container" id="cart-items-container">
-            <!-- Запускаем пользовательский тег "user_carts", который получает данные корзины и сохраняет их в переменной "carts" (из файла carts_tags). -->
+            <!-- Запускаем пользовательский тег "user_carts", который получает данные корзины
+            и сохраняет их в переменной "carts" (из файла carts_tags). -->
             {% user_carts request as carts %}
             <!-- Включение шаблона с разметкой корзины -->
             {% include 'carts/includes/included_cart.html' %}
@@ -33,7 +37,9 @@
                                    value="{% if form.first_name.value %}{{ form.first_name.value }}{% endif %}"
                                    name="first_name" required>
                             {% if form.first_name.errors %}
-                                <div class="alert alert-danger alert-dismissible fade show">{{form.first_name.errors}}</div>
+                                <div class="alert alert-danger alert-dismissible fade show">
+                                    {{ form.first_name.errors }}
+                                </div>
                             {% endif %}
                         </div>
 
@@ -44,7 +50,9 @@
                                    value="{% if form.last_name.value %}{{ form.last_name.value }}{% endif %}"
                                    name="last_name" required>
                             {% if form.last_name.errors %}
-                                <div class="alert alert-danger alert-dismissible fade show">{{form.last_name.errors}}</div>
+                                <div class="alert alert-danger alert-dismissible fade show">
+                                    {{ form.last_name.errors }}
+                                </div>
                             {% endif %}
                         </div>
 
@@ -56,7 +64,11 @@
                                    placeholder="В формате: (000) 000-0000"
                                    required>
                             {% if form.phone_number.errors %}
-                                <div class="alert alert-danger alert-dismissible fade show" style="display: none" id="phone_number_error">Неверный формат номера</div>
+                                <div class="alert alert-danger alert-dismissible fade show"
+                                     style="display: none"
+                                     id="phone_number_error">
+                                    Неверный формат номера
+                                </div>
                             {% endif %}
                         </div>
 
@@ -83,10 +95,15 @@
                             <label for="id_delivery_address" class="form-label">Адрес
                                 доставки*:</label>
                             <textarea class="form-control" id="id_delivery_address"
-                                      value="{% if form.delivery_address.value %}{{ form.delivery_address.value }}{% endif %}"
-                                      name="delivery_address" rows="2"></textarea>
+                                      value="{% if form.delivery_address.value %}
+                                      {{ form.delivery_address.value }}
+                                      {% endif %}"
+                                      name="delivery_address" rows="2">
+                            </textarea>
                             {% if form.delivery_address.errors %}
-                                <div class="alert alert-danger alert-dismissible fade show">{{form.delivery_address.errors}}</div>
+                                <div class="alert alert-danger alert-dismissible fade show">
+                                    {{ form.delivery_address.errors }}
+                                </div>
                             {% endif %}
                         </div>
 
@@ -107,7 +124,9 @@
                                 <label class="form-check-label" for="id_payment_on_get">Наличными/картой
                                     при получении</label>
                                 {% if form.payment_method.errors %}
-                                    <div class="alert alert-danger alert-dismissible fade show">{{form.payment_method.errors}}</div>
+                                    <div class="alert alert-danger alert-dismissible fade show">
+                                        {{ form.payment_method.errors }}
+                                    </div>
                                 {% endif %}
                             </div>
                         </div>

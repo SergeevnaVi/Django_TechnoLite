@@ -25,20 +25,25 @@
                 {% for message in messages %}
                     <!-- Если сообщение с тегом "success", отображаем его в зелёной рамке -->
                     {% if message.tags == 'success' %}
-                    <div id="notification" class="position-fixed start-50 translate-middle-x z-3 alert alert-success fade show custom-shadow" role="alert">
+                    <div id="notification" class="position-fixed start-50 translate-middle-x z-3
+                                                alert alert-success fade show custom-shadow" role="alert">
                         {{ message }}
                     </div>
                     {% endif %}
+
                     <!-- Если сообщение с тегом "warning", отображаем его в красной рамке -->
                     {% if message.tags == 'warning' %}
-                    <div id="notification1" class="position-fixed start-50 translate-middle-x z-3 alert alert-danger fade show custom-shadow" role="alert">
+                    <div id="notification1" class="position-fixed start-50 translate-middle-x z-3
+                                                alert alert-danger fade show custom-shadow" role="alert">
                         {{ message }}
                     </div>
                     {% endif %}
                 {% endfor %}
             {% else %}
+
             <!-- Место для уведомлений, которые могут быть добавлены через JavaScript -->
-            <div id="jq-notification" class="position-fixed start-50 translate-middle-x z-3 alert alert-success fade show custom-shadow" style="display: none;" role="alert">
+            <div id="jq-notification" class="position-fixed start-50 translate-middle-x z-3
+                                        alert alert-success fade show custom-shadow" style="display: none;" role="alert">
             </div>
             {% endif %}
         </div>

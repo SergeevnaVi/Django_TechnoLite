@@ -2,6 +2,10 @@ from django import forms
 
 
 class CreateOrderForm(forms.Form):
+    """
+    Форма для создания заказа, включает в себя поля для имени, фамилии,
+    номера телефона, выбора доставки и способа оплаты.
+    """
     first_name = forms.CharField()
     last_name = forms.CharField()
     phone_number = forms.CharField()
@@ -23,6 +27,10 @@ class CreateOrderForm(forms.Form):
 
 
     def clean_phone_number(self):
+        """
+        Валидация номера телефона: он должен содержать только цифры и
+        иметь длину ровно 10 символов.
+        """
         data = self.cleaned_data['phone_number']
 
         if not data.isdigit():

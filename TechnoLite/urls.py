@@ -26,14 +26,16 @@ urlpatterns = [
     path('catalog/', include('products.urls', namespace='catalog')),
     path('user/', include('users.urls', namespace='user')),
     path('cart/', include('carts.urls', namespace='cart')),
-    path('orders/', include('orders.urls', namespace='orders'))
+    path('orders/', include('orders.urls', namespace='orders')),
 ]
 
 # Дополнительные настройки для отладки (только в режиме DEBUG).
 if settings.DEBUG:
+
     # Подключение маршрутов отладки (Django Debug Toolbar).
     urlpatterns += [
         path('__debug__/', include('debug_toolbar.urls')),
     ]
+
     # Настройка обработки медиафайлов для режима разработки.
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

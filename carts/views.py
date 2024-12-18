@@ -59,7 +59,6 @@ def cart_change(request):
     quantity = request.POST.get('quantity')
 
     cart = Cart.objects.get(id=cart_id)
-
     cart.quantity = quantity
     cart.save()
     updated_quantity = cart.quantity
@@ -70,6 +69,7 @@ def cart_change(request):
     referer = request.META.get('HTTP_REFERER')
     if reverse('orders:create_order') in referer:
         context["order"] = True
+
     cart_items_html = render_to_string(
         'carts/includes/included_cart.html', context, request=request)
 

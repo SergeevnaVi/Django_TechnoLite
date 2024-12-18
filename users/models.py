@@ -2,6 +2,11 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 class User(AbstractUser):
+    """
+    Модель пользователя, основанная на стандартной модели AbstractUser.
+
+    Расширяет базовые возможности пользователя, добавляя изображение и номер телефона.
+    """
     image = models.ImageField(upload_to='users_images', blank=True, null=True, verbose_name = 'Аватар')
     phone_number = models.CharField(max_length=10, blank=True, null=True)
 

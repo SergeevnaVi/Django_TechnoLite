@@ -78,19 +78,23 @@
                                     </li>
                                     {% if user.is_admin or user.is_staff %}
                                         <li><a class="dropdown-item  text-white" href="{% url 'admin:index' %}">
-                                            Админ панель</a></li>
+                                            Админ панель</a>
+                                        </li>
                                     {% endif %}
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item  text-white" href="{% url 'user:logout' %}">Выйти</a></li>
+                                    <li><a class="dropdown-item  text-white" href="{% url 'user:logout' %}">
+                                        Выйти</a>
+                                    </li>
                                 </ul>
                             </li>
                         {% endif %}
                     </ul>
                     <!-- Поле поиска -->
                     <form class="d-flex" role="search" action="{% url 'catalog:search' %}" method="get">
-                        <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
+                        <input class="form-control me-2" type="search" name="q" placeholder="Search"
+                               aria-label="Search">
                         <button class="btn btn-outline-success text-white" type="submit">Поиск</button>
                     </form>
                 </div>

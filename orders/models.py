@@ -4,16 +4,30 @@ from users.models import User
 
 
 class OrderitemQueryset(models.QuerySet):
+    """
+    QuerySet для объектов OrderItem, добавляющий методы
+    для подсчета общей цены и количества.
+    """
     def total_price(self):
+        """
+        Вычисляет общую цену всех товаров в заказе.
+        """
         return sum(cart.products_price() for cart in self)
 
     def total_quantity(self):
+        """
+        Вычисляет общее количество товаров в заказе.
+        """
         if self:
             return sum(cart.quantity for cart in self)
         return 0
 
 
 class Order(models.Model):
+    """
+    Модель заказа, которая содержит информацию о заказе,
+    включая пользователя, статус, адрес доставки и оплату.
+    """
     user = models.ForeignKey(to=User, on_delete=models.SET_DEFAULT, blank=True, null=True,
                              verbose_name="Пользователь", default=None)
     created_timestamp = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания заказа")
@@ -34,6 +48,10 @@ class Order(models.Model):
 
 
 class OrderItem(models.Model):
+    """
+    Модель для представления товаров в заказе.
+    Включает информацию о товаре, его цене, количестве и дате продажи.
+    """
     order = models.ForeignKey(to=Order, on_delete=models.CASCADE, verbose_name="Заказ")
     product = models.ForeignKey(to=Products, on_delete=models.SET_DEFAULT, null=True,
                                 verbose_name="Товар", default=None)
@@ -50,6 +68,9 @@ class OrderItem(models.Model):
     objects = OrderitemQueryset.as_manager()
 
     def products_price(self):
+        """
+        Рассчитывает стоимость товара в заказе.
+        """
         return round(self.price * self.quantity, 2)
 
     def __str__(self):

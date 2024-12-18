@@ -18,7 +18,7 @@ def login(request):
     В случае ошибки возвращает форму с сообщением об ошибке.
     """
     if request.method == 'POST':
-        # Наполняем данными которые ввел пользовательм
+        # Наполняем данными которые ввел пользователь
         form = UserLoginForm(data=request.POST)
         if form.is_valid():
             username = request.POST['username']
@@ -44,6 +44,7 @@ def login(request):
         'title': 'TechnoLite - Авторизация',
         'form': form
     }
+
     return render(request, 'users/login.html', context)
 
 
@@ -62,6 +63,7 @@ def password(request):
         'email': 'support@technolite.ru',
         'text_on_page3': 'Мы всегда готовы помочь вам. Пожалуйста, не стесняйтесь обращаться.',
     }
+
     return render(request, 'users/password.html', context)
 
 
@@ -96,6 +98,7 @@ def registration(request):
         'title': 'TechnoLite - Регистрация',
         'form': form
     }
+
     return render(request, 'users/registration.html', context)
 
 
@@ -135,8 +138,10 @@ def profile(request):
         'form': form,
         'orders': orders
     }
+
     messages.success(request, 'Ваша учетная запись обновлена')
     return render(request, 'users/profile.html', context)
+
 
 def users_cart(request):
     """
@@ -145,6 +150,7 @@ def users_cart(request):
     Показывает информацию о товарах в корзине пользователя.
     """
     return render(request, 'users/users_cart.html')
+
 
 @login_required
 def logout(request):

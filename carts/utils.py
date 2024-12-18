@@ -2,13 +2,20 @@ from carts.models import Cart
 
 
 def get_user_carts(request):
-    # Если пользователь авторизован, фильтруем корзины по полю 'user' (связанное с пользователем)
-    # Метод select_related загружает связанные объекты 'product' в одном SQL-запросе для оптимизации
-    if request.user.is_authenticated:
-        return Cart.objects.filter(user=request.user).select_related('product')  # сокращаем кол-во sql-запросов
+    """
+    Получает корзины пользователя на основе авторизации или сессионного ключа.
 
-    # Если пользователь не авторизован, проверяем наличие session_key (если он ещё не существует)
-    # Если session_key отсутствует, создаём новый сессионный ключ
+    Если пользователь авторизован, фильтруются корзины по полю 'user'.
+    Для авторизованных пользователей используется метод select_related для оптимизации запросов,
+    чтобы сразу загрузить связанные товары.
+
+    Если пользователь не авторизован, проверяется наличие session_key.
+    Если ключ отсутствует, создается новый сессионный ключ, и корзины фильтруются по этому ключу.
+    """
+    if request.user.is_authenticated:
+        return Cart.objects.filter(user=request.user).select_related('product')
+
     if not request.session.session_key:
         request.session.create()
-    return Cart.objects.filter(session_key=request.session.session_key).select_related('product')  # сокращаем кол-во sql-запросов
+        
+    return Cart.objects.filter(session_key=request.session.session_key).select_related('product')

@@ -1,6 +1,11 @@
 from django.db import models
 
+
 class Categories(models.Model):
+    """
+    Модель категории товара в магазине. Содержит информацию о названии категории
+    и уникальном URL-идентификаторе (slug).
+    """
     name = models.CharField(max_length=150, unique=True, verbose_name='Название')
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True, verbose_name='URL')
 
@@ -14,6 +19,10 @@ class Categories(models.Model):
 
 
 class Products(models.Model):
+    """
+    Модель товара, содержащая информацию о названии, производителе, цене, описании и других характеристиках.
+    Связан с категорией, к которой относится товар.
+    """
     name = models.CharField(max_length=150, unique=True, verbose_name='Название')
     manufacturer = models.CharField(max_length=55, blank=True, null=True, verbose_name='Производитель')
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True, verbose_name='URL')
@@ -41,7 +50,8 @@ class Products(models.Model):
 
     def sell_price(self):
         """
-        Рассчитывает цену товара с учетом скидки. Если скидка есть, применяет ее, иначе возвращает обычную цену.
+        Рассчитывает цену товара с учетом скидки.
+        Если скидка есть, применяет ее, иначе возвращает обычную цену.
         """
         if self.discount:
             return round(self.price - (self.price * self.discount / 100), 2)

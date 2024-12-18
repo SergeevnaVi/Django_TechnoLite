@@ -37,6 +37,9 @@ class Cart(models.Model):
     objects = CartQueryset().as_manager()
 
     def products_price(self):
+        """
+        Метод для вычисления стоимости товара в корзине.
+        """
         return round(self.product.sell_price() * self.quantity, 2)
 
     def __str__(self):
